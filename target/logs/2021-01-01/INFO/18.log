@@ -1,0 +1,10 @@
+2021-01-01 18:42:46.690 [main] INFO  com.company.myapp.Application:651 logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2021-01-01 18:42:50.597 [main] INFO  com.alibaba.druid.pool.DruidDataSource:985 init - {dataSource-1} inited
+2021-01-01 18:42:53.679 [main] INFO  com.netflix.config.sources.URLConfigurationSource:122 <init> - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-01 18:42:53.712 [main] INFO  com.netflix.config.sources.URLConfigurationSource:122 <init> - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-01-01 18:42:54.150 [vert.x-eventloop-thread-0] INFO  com.company.myapp.verticle.HttpServerVerticle:55 lambda$0 - Http Server start success ,listen on the port:8888 
+2021-01-01 18:42:54.370 [vert.x-eventloop-thread-1] INFO  com.company.myapp.verticle.SocketServerVerticle:80 lambda$2 - Socket Server start success ,listen on the port:7777 !
+2021-01-01 18:42:54.906 [main] INFO  com.netflix.discovery.DiscoveryClient:372 <init> - Initializing Eureka in region us-east-1
+2021-01-01 18:42:54.906 [main] INFO  com.netflix.discovery.DiscoveryClient:375 <init> - Client configured to neither register nor query for data.
+2021-01-01 18:42:54.918 [main] INFO  com.netflix.discovery.DiscoveryClient:390 <init> - Discovery Client initialized at timestamp 1609497774916 with initial instances count: 0
+2021-01-01 18:42:54.980 [main] INFO  com.company.myapp.Application:61 logStarted - Started Application in 10.286 seconds (JVM running for 11.608)

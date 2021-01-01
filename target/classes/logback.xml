@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration scan="true" scanPeriod="360 seconds" debug="false">
+	<property name="LOG_HOME" value="${log.dir:-target/logs}/" />
+	<property name="MAX_HISTORY" value="${log.max.history:-300}" />
+	<property name="MAX_FILESIZE" value="${log.max.filesize:-100MB}" />
+	<property name="LOG_LEVEL" value="${log.level:-INFO}" />
+	<property name="ENCODER_PATTERN"
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger:%line %method - %msg%n" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8">
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE_ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/ERROR/%d{HH}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY </onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="FILE_WARN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/WARN/%d{HH}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY </onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="FILE_INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/INFO/%d{HH}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY </onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="FILE_DEBUG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/DEBUG/%d{HH}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY </onMismatch>
+		</filter>
+	</appender>
+	<appender name="FILE_DEBUG2"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/DEBUG2/%d{HH}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY </onMismatch>
+		</filter>
+	</appender>
+
+	<appender name="FILE_TRACE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}/TRACE/%d{HH}.log
+			</fileNamePattern>
+			<maxHistory>${MAX_HISTORY}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY </onMismatch>
+		</filter>
+	</appender>
+
+	<root level="${LOG_LEVEL}">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE_ERROR" />
+		<appender-ref ref="FILE_WARN" />
+		<appender-ref ref="FILE_INFO" />
+		<appender-ref ref="FILE_DEBUG" />
+		<appender-ref ref="FILE_TRACE" />
+	</root>
+
+	<logger name="org.quartz" level="WARN" />
+	<logger name="com.erayt" level="INFO" />
+	<logger name="com.mchange" level="WARN" />
+	<logger name="com.erayt.solar2" level="DEBUG" />
+	<logger name="com.googlecode" level="WARN" />
+	<logger name="com.ibatis" level="WARN" />
+	<logger name="com.opensymphony" level="WARN" />
+	<logger name="com.opensymphony.xwork2" level="WARN" />
+	<logger name="net.sf" level="WARN" />
+	<logger name="org.apache" level="INFO" />
+	<logger name="org.apache.struts2" level="WARN" />
+	<logger name="org.codehaus" level="WARN" />
+	<logger name="org.jgroups" level="WARN" />
+	<logger name="org.springframework" level="WARN" />
+	<logger name="java.sql.Connection" level="WARN" />
+	<logger name="java.sql.PreparedStatement" level="WARN" />
+	<logger name="java.sql.ResultSet" level="WARN" />
+	<logger name="io.netty" level="WARN" />
+	<logger name="org.jboss.logging" level="WARN" />
+	<logger name="ch.qos" level="ERROR" />
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder"
+		level="ERROR" />
+	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor"
+		level="ERROR" />
+	<logger name="org.hibernate.SQL" level="ERROR" />
+	<logger name="org.hibernate.engine.QueryParameters" level="ERROR" />
+	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="ERROR" />
+	<logger name="org.hibernate" level="ERROR" />
+
+</configuration>
